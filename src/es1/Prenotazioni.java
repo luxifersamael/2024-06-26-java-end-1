@@ -13,6 +13,8 @@ public class Prenotazioni {
 
     public Prenotazioni(int size) {
         posti = new boolean[size];
+        System.out.println();
+        
     }
 
     /* Questo metodo scorre l'array delle prenotazioni e se c'è un posto disponibil

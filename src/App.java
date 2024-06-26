@@ -44,9 +44,15 @@ public class App {
      * contatti. Gestisci eventuali eccezioni relative all'inserimento di numeri di
      * telefono non validi.
      * 
+     * * ES5: Sistema di Votazione
+     * 
+     * Crea classi per Candidato e Elettore, dove ogni Elettore può votare per un
+     * Candidato. Implementa un meccanismo usando mappe per tenere traccia dei voti
+     * ricevuti da ogni candidato. Assicurati di gestire le eccezioni per casi come
+     * doppi voti o voti a candidati non esistenti.
      */
     public static void main(String[] args) throws Exception {
-        
+
         // test esercizio 1
         System.out.println("\n--------------------\n");
         System.out.println("Test esercizio 1\n");
@@ -59,10 +65,9 @@ public class App {
         teatro.disponibili(12);
         System.out.println("\n--------------------\n");
 
-
-    // test esercizio 2
+        // test esercizio 2
         System.out.println("Test esercizio 2\n");
-        
+
         Studenti studente = new Studenti("Mario Esposito", "0124002729");
         studente.addVoto(30);
         studente.addVoto(18);
@@ -111,6 +116,37 @@ public class App {
             System.out.println(e.getMessage());
         }
         System.out.println("\n--------------------\n");
+
+
+        //test esercizio 5
+        SistemaVoto sistema = new SistemaVoto();
+        Candidato candidato1 = new Candidato("Mario");
+        Candidato candidato2 = new Candidato("Luca");
+        Candidato candidato3 = new Candidato("Nicola");
+        Elettore elettore1 = new Elettore("Pasquale");
+        Elettore elettore2 = new Elettore("Giovanni");
+        Elettore elettore3 = new Elettore("Ciro");
+        Elettore elettore4 = new Elettore("Gioacchino");
+        Elettore elettore5 = new Elettore("Giovanni");
+        Elettore elettore6 = new Elettore("Riccardo");
+
+        sistema.aggiungiCandidato(candidato1);
+        sistema.aggiungiCandidato(candidato2);
+        sistema.aggiungiCandidato(candidato3);
+        
+        try {
+            sistema.registraVoto(elettore1, "Nicola");
+            sistema.registraVoto(elettore2, "Luca");
+            sistema.registraVoto(elettore3, "Luca");
+            sistema.registraVoto(elettore4, "Nicola");
+            sistema.registraVoto(elettore5, "Nicola");
+            sistema.registraVoto(elettore6, "Carmine");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        sistema.stampaRisultati();
+
 
     }
 }

@@ -25,6 +25,7 @@ public class Elenco {
     public void aggiungiContatto(Contatto contatto) {
         elenco.add(contatto);
         System.out.println("Contatto aggiunto con successo: " + contatto.getNome() + " " + contatto.getNumero());
+        System.out.print(false);
     }
 
     /*
