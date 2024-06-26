@@ -13,19 +13,33 @@ public class Studenti {
     private String matricola;
     private ArrayList<Integer> voti;
 
+
+    
     public Studenti(String nome, String matricola) {
         this.nome = nome;
         this.matricola = matricola;
         this.voti = new ArrayList<>();
     }
 
+    /* Il metodo addVoto prende in input un voto, se questo è minore di 18 allora lancia un'eccezione
+     * poiché 18 è il voto minimo, se il voto è maggiore di 30
+     * lancia un'altra eccezione poiché non è possibile aggiungere un voto maggiore di 30
+     * se il voto è valido viene aggiunto alla lista dei voti
+     */
     public void addVoto(int voto) {
-        if (voto < 18 || voto > 30) {
-            throw new IllegalArgumentException("Impossibile aggiungere il voto poiché non è compreso tra 18 e 30");
+        if (voto < 18) {
+            throw new IllegalArgumentException("Impossibile aggiungere il voto poiché non si è superati la prova");
+        }
+        if (voto > 30) {
+            throw new IllegalArgumentException("Impossibile aggiungere il voto poiché maggiore di 30");
         }
         voti.add(voto);
     }
 
+    /* il metodo media controlla prima cosa se c'è almeno un voto,
+     * se non ci sono voti allora lancia un'eccezione, altrimenti
+     * calcola la media dei voti e la restituisce
+     */
     public double media() {
         if (voti.isEmpty()) {
             throw new IllegalStateException("Non ci sono voti per calcolare la media");

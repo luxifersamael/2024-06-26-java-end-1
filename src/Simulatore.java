@@ -13,6 +13,10 @@ public class Simulatore {
         this.saldo = saldo;
     }
 
+    /* il metodo deposita prende in input la quantità di denaro da depositare,
+     * se la quantità è minore o uguale a 0 lancia un'eccezione, altrimenti
+     * aggiunge la quantità al saldo del conto
+     */
     public void deposita(int quant) {
         if (quant <= 0) {
             throw new IllegalArgumentException("Impossibile depositare una cifra minore o uguale a 0");
@@ -20,6 +24,11 @@ public class Simulatore {
         saldo += quant;
     }
 
+    /* il metodo preleva prende in input la quantità di denaro da prelevare
+     * se la quantità è minore o uguale a 0 lancia un'eccezione, se la quantità
+     * è maggiore del saldo lancia un'altra eccezione, altrimenti sottrae la quantità
+     * al saldo del conto
+     */
     public void preleva(int quant) {
         if (quant <= 0) {
             throw new IllegalArgumentException("Impossibile prelevare una cifra minore o uguale a 0");
@@ -30,6 +39,7 @@ public class Simulatore {
         saldo -= quant;
     }
 
+    /* il metodo saldo restituisce il saldo del conto */
     public int saldo() {
         return saldo;
     }
