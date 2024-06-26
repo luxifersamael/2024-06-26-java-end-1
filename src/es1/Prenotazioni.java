@@ -1,3 +1,4 @@
+package es1;
 public class Prenotazioni {
     /*
      * ES1: Sistema di Prenotazioni

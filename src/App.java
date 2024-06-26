@@ -1,3 +1,12 @@
+import es1.Prenotazioni;
+import es2.Studenti;
+import es3.Simulatore;
+import es4.Contatto;
+import es4.Elenco;
+import es5.Candidato;
+import es5.Elettore;
+import es5.SistemaVoto;
+
 public class App {
     /**
      * TODO:
@@ -146,6 +155,8 @@ public class App {
             System.out.println(e.getMessage());
         }
         sistema.stampaRisultati();
+
+        System.out.println("\n--------------------\n");
 
 
     }

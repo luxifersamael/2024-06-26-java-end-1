@@ -1,3 +1,4 @@
+package es4;
 public class Contatto {
     //classe di supporto per l'esercizio 4
 
