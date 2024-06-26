@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 import es1.Prenotazioni;
@@ -13,9 +14,13 @@ import es6.Cliente;
 import es6.PrenotazioneHotel;
 import es7.Impiegato;
 import es7.Manager;
+import es8.CameraAlbergo;
+import es8.CameraDoppia;
+import es8.CameraSingola;
+import es8.Suite;
 
 public class App {
-    /**
+    /*
      * ES0: Creare un repository su GitHub con il seguente nome:
      * 2024-06-26-java-end-1
      * 
@@ -31,7 +36,7 @@ public class App {
      * verificare se un o piu' posti
      * }
      * 
-     * /**
+     *
      * TODO:
      * 
      * ES0: Creare un repository su GitHub con il seguente nome:
@@ -252,14 +257,28 @@ public class App {
         System.out.println(impiegati[0]);
 
         System.out.println(impiegati[1]);
-        // poliformismo latebinding la chiamata del metodo aumentaSalario avviene a
-        // runtime
+        // poliformismo latebinding la chiamata del metodo aumentaSalario avviene a runtime
         impiegati[1].aumentaSalario(10);
         System.out.println(impiegati[1]);
 
         System.out.println("\n--------------------\n");
 
+
+
         // test esercizio 8
+        System.out.println("Test esercizio 8\n");
+
+                ArrayList<CameraAlbergo> camereHotel = new ArrayList<>();
+
+        // Aggiunta di diverse tipologie di camere
+        camereHotel.add(new CameraSingola(2, 101));
+        camereHotel.add(new CameraDoppia(2, 102));
+        camereHotel.add(new Suite(3, 201));
+
+        // Stampa delle informazioni e dei costi delle camere
+        for (CameraAlbergo cameraAlbergo : camereHotel) {
+            System.out.println(cameraAlbergo.toString());
+        }
 
     }
 }
