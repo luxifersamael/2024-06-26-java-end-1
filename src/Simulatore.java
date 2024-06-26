@@ -22,6 +22,7 @@ public class Simulatore {
             throw new IllegalArgumentException("Impossibile depositare una cifra minore o uguale a 0");
         }
         saldo += quant;
+        System.err.println("Desposito effettuato di " + quant + " euro");
     }
 
     /* il metodo preleva prende in input la quantità di denaro da prelevare
@@ -37,6 +38,7 @@ public class Simulatore {
             throw new IllegalStateException("Impossibile prelevare, saldo insufficiente");
         }
         saldo -= quant;
+        System.out.println("Prelevamento effettuato di " + quant + " euro");
     }
 
     /* il metodo saldo restituisce il saldo del conto */

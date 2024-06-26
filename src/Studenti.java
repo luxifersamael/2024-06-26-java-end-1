@@ -33,6 +33,7 @@ public class Studenti {
         if (voto > 30) {
             throw new IllegalArgumentException("Impossibile aggiungere il voto poiché maggiore di 30");
         }
+        System.out.println("Voto aggiunto: " + voto);
         voti.add(voto);
     }
 

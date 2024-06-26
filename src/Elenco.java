@@ -24,17 +24,28 @@ public class Elenco {
 
     public void aggiungiContatto(Contatto contatto) {
         elenco.add(contatto);
+        System.out.println("Contatto aggiunto con successo: " + contatto.getNome() + " " + contatto.getNumero());
     }
 
-    /* Questo metodo prende in input un oggetto di tipo Contatto e,
+    /*
+     * Questo metodo prende in input un oggetto di tipo Contatto e,
      * lo rimuove dalla lista dei contatti
+     * se non lo trovo nella lista lancia un'eccezione
      * 
      */
     public void rimuoviContatto(Contatto contatto) {
-        elenco.remove(contatto);
+
+        if (elenco.contains(contatto)) {
+            System.out.println("Contatto rimosso con successo: " + contatto.getNome() + " " + contatto.getNumero());
+            elenco.remove(contatto);
+        } else {
+
+            throw new IllegalArgumentException("Contatto non presente");
+        }
     }
 
-    /* Questo metodo prende in input un nome
+    /*
+     * Questo metodo prende in input un nome
      * e cerca questo nome tra la lista dei contatti
      * se viene trovato allora viene restituito il contatto
      * altrimenti viene restituito un valore nullo
@@ -42,9 +53,11 @@ public class Elenco {
     public Contatto cercaContatto(String nome) {
         for (Contatto contatto : elenco) {
             if (contatto.getNome() == nome) {
+                System.out.println("Contatto trovato: " + contatto.getNome() + " " + contatto.getNumero());
                 return contatto;
             }
         }
+        System.out.println("Contatto non trovato");
         return null;
     }
 
