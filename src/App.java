@@ -1,3 +1,5 @@
+import java.util.List;
+
 import es1.Prenotazioni;
 import es2.Studenti;
 import es3.Simulatore;
@@ -6,6 +8,9 @@ import es4.Elenco;
 import es5.Candidato;
 import es5.Elettore;
 import es5.SistemaVoto;
+import es6.Camera;
+import es6.Cliente;
+import es6.PrenotazioneHotel;
 
 public class App {
     /**
@@ -59,6 +64,18 @@ public class App {
      * Candidato. Implementa un meccanismo usando mappe per tenere traccia dei voti
      * ricevuti da ogni candidato. Assicurati di gestire le eccezioni per casi come
      * doppi voti o voti a candidati non esistenti.
+     * ---------------------------------------------------------------------------
+     * 
+     * ES6: Sistema di Prenotazione Hotel
+     * 
+     * Definisci classi per Camera, Cliente, e Prenotazione. Utilizza una mappa per
+     * associare clienti a prenotazioni e una lista di camere disponibili.
+     * Implementa metodi per effettuare, modificare e cancellare prenotazioni,
+     * assicurandoti di gestire eccezioni come camere non disponibili o
+     * cancellazioni tardive.
+     * 
+     * ---------------------------------------------------------------------------
+     * 
      */
     public static void main(String[] args) throws Exception {
 
@@ -126,8 +143,7 @@ public class App {
         }
         System.out.println("\n--------------------\n");
 
-
-        //test esercizio 5
+        // test esercizio 5
         SistemaVoto sistema = new SistemaVoto();
         Candidato candidato1 = new Candidato("Mario");
         Candidato candidato2 = new Candidato("Luca");
@@ -142,7 +158,7 @@ public class App {
         sistema.aggiungiCandidato(candidato1);
         sistema.aggiungiCandidato(candidato2);
         sistema.aggiungiCandidato(candidato3);
-        
+
         try {
             sistema.registraVoto(elettore1, "Nicola");
             sistema.registraVoto(elettore2, "Luca");
@@ -158,6 +174,25 @@ public class App {
 
         System.out.println("\n--------------------\n");
 
-
+        //test esercizio 6
+        System.out.println("Test esercizio 6\n");
+        List<Camera> camere = List.of(new Camera(1), new Camera(2), new Camera(3), new Camera(4), new Camera(5));
+        Cliente cliente1 = new Cliente("Mario");
+        Cliente cliente2 = new Cliente("Luca");
+        Cliente cliente3 = new Cliente("Nicola");
+        PrenotazioneHotel prenotazioni = new PrenotazioneHotel(camere);
+        try {
+            prenotazioni.prenota(cliente1, camere.get(0));
+            prenotazioni.prenota(cliente2, camere.get(1));
+            prenotazioni.prenota(cliente3, camere.get(2));
+            prenotazioni.cancella(cliente1);
+            prenotazioni.cancella(cliente2);
+            prenotazioni.cancella(cliente3);
+            prenotazioni.cancella(cliente3);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("\n--------------------\n");
+        
     }
 }
